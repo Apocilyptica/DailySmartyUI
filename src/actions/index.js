@@ -14,18 +14,18 @@ export function fetchRecentPosts() {
   };
 }
 
-export function fetchPostsWithQuery(query) {
+export function fetchPostsWithQuery(query, callback) {
   return function (dispatch) {
     axios
       .get(`https://api.dailysmarty.com/search?q=${query.query}`)
       .then((response) => {
-        console.log("query", query);
-        console.log("query response", response);
-        console.log("query data", response.data.posts);
         dispatch({
           type: SET_RESULTS_POSTS,
           payload: response.data.posts,
         });
+        if (callback) {
+          callback();
+        }
       });
   };
 }
