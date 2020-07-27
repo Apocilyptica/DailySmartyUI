@@ -17,6 +17,12 @@ body {
 
   display: grid;
   align-content: space-around;
+  justify-items: stretch;
+}
+
+.logo-main,
+.recent-posts {
+  display: grid;
   justify-items: center;
 }
 
